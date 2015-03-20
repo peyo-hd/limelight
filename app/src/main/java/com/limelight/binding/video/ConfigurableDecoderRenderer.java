@@ -30,7 +30,7 @@ public class ConfigurableDecoderRenderer extends EnhancedDecoderRenderer {
             decoderRenderer = new MediaCodecDecoderRenderer();
         }
         else {
-            decoderRenderer = new AndroidCpuDecoderRenderer();
+            decoderRenderer = new AmCodecDecoderRenderer();
         }
     }
 

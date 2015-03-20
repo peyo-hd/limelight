@@ -20,7 +20,7 @@ public class EvdevWatcher {
     private EvdevListener listener;
     private Thread startThread;
 
-    private static boolean patchedSeLinuxPolicies = false;
+    private static boolean patchedSeLinuxPolicies = true;
 
     private FileObserver observer = new FileObserver(PATH, FileObserver.CREATE | FileObserver.DELETE) {
         @Override
@@ -43,7 +43,7 @@ public class EvdevWatcher {
 
                     if (!init) {
                         // If this a real new device, update permissions again so we can read it
-                        EvdevReader.setPermissions(new String[]{PATH + "/" + fileName}, 0666);
+                        //EvdevReader.setPermissions(new String[]{PATH + "/" + fileName}, 0666);
                     }
 
                     EvdevHandler handler = new EvdevHandler(PATH + "/" + fileName, listener);
@@ -85,7 +85,7 @@ public class EvdevWatcher {
         for (int i = 0; i < files.length; i++) {
             filePaths[i] = files[i].getAbsolutePath();
         }
-        EvdevReader.setPermissions(filePaths, newPermissions);
+        //EvdevReader.setPermissions(filePaths, newPermissions);
 
         return files;
     }
@@ -120,7 +120,7 @@ public class EvdevWatcher {
             @Override
             public void run() {
                 // Initialize the root shell
-                EvdevShell.getInstance().startShell();
+                //EvdevShell.getInstance().startShell();
 
                 // Patch SELinux policies (if needed)
                 if (!patchedSeLinuxPolicies) {

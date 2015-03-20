@@ -863,6 +863,10 @@ public class Game extends Activity implements SurfaceHolder.Callback,
 
     @Override
     public void keyboardEvent(boolean buttonDown, short keyCode) {
+        if (buttonDown && keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+            return;
+        }
         short keyMap = keybTranslator.translate(keyCode);
         if (keyMap != 0) {
             if (handleSpecialKeys(keyMap, buttonDown)) {

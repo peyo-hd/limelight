@@ -126,6 +126,11 @@ public class EvdevTranslator {
         0, //KeyEvent.VK_KPPLUSMINUS,
         KeyEvent.KEYCODE_BREAK,
         0, //KeyEvent.VK_SCALE, /* AL Compiz Scale (Expose) */
+        0,
+        0,
+        0,
+        0,
+        KeyEvent.KEYCODE_BACK, /* Windows Key */
     };
 
     public static short translateEvdevKeyCode(short evdevKeyCode) {
